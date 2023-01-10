@@ -1,0 +1,47 @@
+.head{
+    text-align: center;
+    color: blue;
+    line-height: normal;
+}
+input[type=text], select {
+    font-size:auto;
+    width: 30%;
+    line-height:30px;
+    border: 1px solid rgb(10, 8, 8);
+    margin: 10px;
+    padding:10px;
+    border-radius: 3px;
+    box-sizing:border-box;
+}
+input[type=submit]{
+    width: 15%;
+    color: black;
+    background-color: rgb(71, 173, 71);
+    padding: 10px;
+    border-radius: 4px;
+    margin: 30px;
+    cursor: pointer;
+    margin-left: 50px;
+}
+input[type=submit]:hover{
+    background-color: rgb(34, 124, 46);
+}
+#content{
+    background-color: rgb(165, 228, 170);
+}
+.form{
+    font-size: large;
+    margin-left: 30px;
+}
+.species{
+    font-size: large;
+    color: blue;
+    text-align: center;
+    line-height: 40%;
+    margin-top: 20%;
+    
+   
+}
+.col{
+    background-color:rgb(224, 157, 224);
+}

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html >
+<head>
+<meta charset="UTF-8">
+<title> IBM Employee Attrition Prediction</title>
+<style>
+body{
+background-color:#887FAF
+}
+</style>	
+<link rel="stylesheet" href="static/css/style.css">
+</head>
+
+<body>
+ <div class="login">
+
+	<h1><center>IBM Attrition</h1></center>
+    <h3><center>Attrition: When an employee leaves the company due to resignation or retirement, then it is called Attrition. Employees leave the company for personal and professional reasons like retirement, lower growth potential, lower work satisfaction, lower pay rate, bad work environment, etc. Attrition is part and parcel of any business. Attrition is a cause of concern when it crosses a limit.</h3></center>
+	<center><img src="static/images/zVyLi1PK_400x400.jpg""width"1000" height"200" alt="IBM"></center>
+        
+	<form action="{{ url_for('predict')}}" method="POST" autocomplete="on">
+
+    <center><b>Age</b> :<input type="number" name="Age" placeholder="18-80" required min="18" max="80"></center><br><br>
+    
+   
+    
+    <center><h3>BusinessTravel</h3><select name="BusinessTravel" id="BusinessTravel" required="required">
+                <option value="1">Travel_Frequently</option>
+                <option value="2">Travel_Rarely</option>
+                <option value="3">Non-Travel</option>
+            </select></center><br><br>
+   
+    <center><h3>Department</h3><br><select name="Department" id="Department" required="required">
+                <option value="1">Research & Development</option>
+                <option value="2">Sales</option>
+                <option value="3">Human Resources</option>
+            </select></center><br><br>
+
+           
+    <center><h3>DistanceFromHome</h3> : <input type="number" name="DistanceFromHome" placeholder="1-29" required min="1" max="29"> KM</center><br><br>
+    <center><h3>Education</h3> : <input type="number" name="Education" placeholder="1-5" required min="1" max="5"></center> <br><br> 
+    <center><h3>EducationField</h3> :<br><select name="EducationField" id="EducationField" required="required">
+        <option value="1">Life Sciences</option>
+        <option value="2">Medical</option>
+        <option value="3">Manager</option>
+        <option value="4">Technical Degree</option>
+        <option value="5">Other</option>
+        <option value="6">Human Resources</option>
+        <option value="7">Test</option>
+    </select></center><br><br>
+       
+        
+    <center><h3>EnvironmentSatisfaction</h3>:<input type="number" name="EnvironmentSatisfaction" placeholder="1-4" required min="1" max="4"></center><br><br></center>
+    <center><h3>JobInvolvement</h3> :<input type="number" name="JobInvolvement" placeholder="1-4" required min="1" max="4"></center><br><br>
+    <center><b>JobLevel</b> : <input type="number" name="JobLevel" placeholder="1-5" required min="1" max="5"></center><br><br>
+    
+    <center><h3>JobRole</h3><br><select name="JobRole" id="JobRole" required="required">
+
+        <option value="1">Human Resources</option>
+        <option value="2">Laboratory Technician</option>
+        <option value="3">Manager</option>
+        <option value="4">Manufacturing Director</option>
+        <option value="5">Research Director</option>
+        <option value="6">Research Scientist</option>
+        <option value="7">Sales Executive</option>
+        <option value="8">Sales Representative</option>
+    </select></center><br><br>
+    
+    
+    <center><h3>JobSatisfaction :<input type="number" name="JobSatisfaction" placeholder="1-4" required min="1" max="4"></center><br><br>
+    <center><h3>MaritalStatus</h3><br><select name="MaritalStatus" id="MaritalStatus" required="required">
+            <option value="0">Married</option>
+            <option value="1">Single</option>
+            <option value="2">Divorced</option>
+        </select></center><br><br> 
+    <center><b>MonthlyIncome</b> : <input type="number" name="MonthlyIncome" placeholder="1000-20000" required min="1000" max="20000" size="30">  (1000-20000)</center><br><br>
+    <center><b>NumCompaniesWorked</b>: <input type="number" name="NumCompaniesWorked" placeholder="0-9" required min="0" max="9" size="30"></center><br><br>
+    <center><h3>OverTime</h3><select name="OverTime" id="OverTime" required="required">
+          <option value="1">Yes</option>
+          <option value="0">NO</option>
+        </select></center><br><br>
+        
+    
+    <center><b>PercentSalaryHike</b> : <input type="number" name="PercentSalaryHike" placeholder="0-50" required min="1" max="50"></center><br><br>
+    <center><b>PerformanceRating</b> : <input type="number" name="PerformanceRating" placeholder="3-4" required min="3" max="4"></center><br><br>
+    <center><b>RelationshipSatisfaction</b>: <input type="number" name="RelationshipSatisfaction" placeholder="1-4" required min="1" max="4"></center><br><br>
+    <center><b>StockOptionLevel</b> : <input type="number" name="StockOptionLevel" placeholder="0-3" required min="0" max="3"></center><br><br>
+    
+    <center><b>TotalWorkingYears</b> : <input type="number" name="TotalWorkingYears" placeholder="0-28.5" required min="0" max="28.5"></center><br><br>
+    <center><b>TrainingTimesLastYear</b> : <input type="number" name="TrainingTimesLastYear" placeholder="0-6" required min="0" max="6"></center><br><br>
+    <center><b>WorkLifeBalance</b> : <input type="number" name="WorkLifeBalance" placeholder="1-4" required min="1" max="4"></center><br><br>
+    <center><b>YearsAtCompany</b> : <input type="number" name="YearsAtCompany" placeholder="0-40" required min="0" max="40"></center><br><br>
+    <center><b>YearsInCurrentRole</b> : <input type="number" name="YearsInCurrentRole" placeholder="0-18" required min="0" max="18"></center><br><br>
+    <center><b>YearsSinceLastPromotion</b> : <input type="number" name="YearsSinceLastPromotion" placeholder="0-15" required min="0" max="15"></center><br><br>
+	<center><b>YearsWithCurrManager</b> : <input type="number" name="YearsWithCurrManager" placeholder="0-17" required min="0" max="17"></center><br><br>
+    <center><b>Stability</b> : <input type="number" name="Stability" placeholder="0-1" required min="0" max="1"></center><br><br>
+    <center><b>Fidelity</b> : <input type="number" name="Fidelity" placeholder="0-1.125" required min="0" max="1.125"></center><br><br>
+    <center><b>Income_YearsComp</b> : <input type="number" name="Income_YearsComp" placeholder="66.1-3581.375" required min="66.1" max="3581.375"></center><br><br>
+	<center><b>TotalSatisfaction_mean</b> : <input type="number" name="Total_Satisfaction" placeholder="1.2-4.0" required min="1.2" max="4.0"></center><br><br>
+	
+	
+        <center><br><button type="submit" class="btn btn-primary btn-block btn-large">predict</button></center>
+    </form>
+
+   <br>
+   <br>
+    # <center><h1>{{ prediction_text }}</h1></center>
+
+ </div>
+
+
+</body>
+</style>
+</html>
